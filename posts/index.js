@@ -43,6 +43,8 @@ app.post('/events', (req, res) => {
 });
 
 const port = 4000;
+const revision= '0.0.3';
 app.listen(port, () => {
+  console.log(revision);
   console.log(`PostsService started on port ${port}.`);
 });
