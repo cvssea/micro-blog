@@ -17,9 +17,12 @@ app.post('/events', async (req, res, next) => {
   events.push(event);
 
   try {
-    const servicePorts = [4000, 4001, 4002, 4003];
-    const requests = servicePorts.map((port) =>
-      axios.post(`http://localhost:${port}/events`, event)
+    const services = [
+      'posts-clusterip-srv:4000',
+      // 'messages-clusterip-serv:4001',
+    ];
+    const requests = services.map((service) =>
+      axios.post(`http://${service}/events`, event)
     );
 
     await Promise.all(requests);

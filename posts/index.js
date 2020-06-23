@@ -23,7 +23,7 @@ app.post('/posts', async (req, res) => {
   posts[id] = { id, title };
 
   try {
-    await axios.post('http://localhost:4005/events', {
+    await axios.post('http://event-bus-srv:4005/events', {
       type: 'PostCreated',
       data: { id, title },
     });
@@ -43,7 +43,7 @@ app.post('/events', (req, res) => {
 });
 
 const port = 4000;
-const revision= '0.0.3';
+const revision = '0.0.3';
 app.listen(port, () => {
   console.log(revision);
   console.log(`PostsService started on port ${port}.`);
