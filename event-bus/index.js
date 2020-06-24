@@ -13,13 +13,13 @@ const log = (...args) => console.log('EventBus: ', ...args);
 
 app.post('/events', async (req, res, next) => {
   const event = req.body;
-  log(`Receive event ${event.type}`);
+  log(`Received event ${event.type}`);
   events.push(event);
 
   try {
     const services = [
       'posts-clusterip-srv:4000',
-      'messages-clusterip-serv:4001',
+      'comments-clusterip-srv:4001',
       'query-clusterip-srv:4002',
       'moderation-clusterip-srv:4003',
     ];
