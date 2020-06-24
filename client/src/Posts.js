@@ -9,7 +9,7 @@ const Posts = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:4002/posts')
+      .get('http://posts.com/posts')
       .then(({ data }) => setPosts(data))
       .catch((e) => console.log(e));
   }, []);

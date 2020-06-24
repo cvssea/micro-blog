@@ -8,7 +8,7 @@ const STATUS = {
 
 export default ({ comments }) => (
   <ul>
-    {comments.map(({ id, content, status }) => {
+    {comments && comments.map(({ id, content, status }) => {
       let text = '';
       const style = {};
 
