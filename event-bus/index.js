@@ -19,8 +19,11 @@ app.post('/events', async (req, res, next) => {
   try {
     const services = [
       'posts-clusterip-srv:4000',
-      // 'messages-clusterip-serv:4001',
+      'messages-clusterip-serv:4001',
+      'query-clusterip-srv:4002',
+      'moderation-clusterip-srv:4003',
     ];
+    
     const requests = services.map((service) =>
       axios.post(`http://${service}/events`, event)
     );
